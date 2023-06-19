@@ -19,5 +19,6 @@ module.exports = {
       { singleQuote: true, semi: false, tabWidth: 2 },
     ],
     'vue/multi-word-component-names': 'off',
+    'no-unused-vars': 'warn',
   },
 }

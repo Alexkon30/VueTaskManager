@@ -1,3 +1,7 @@
+<script setup>
+import CreateForm from '@/components/CreateForm.vue'
+</script>
+
 <template>
-  <div>This is an add page</div>
+  <CreateForm />
 </template>

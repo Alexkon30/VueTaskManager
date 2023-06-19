@@ -7,6 +7,7 @@ import {
   UPDATE_TASK_STATUS,
   SET_TASKS,
 } from './mutation-types'
+import { VuexLocalStorage } from './plugins'
 
 Vue.use(Vuex)
 
@@ -66,4 +67,5 @@ export default new Vuex.Store({
   },
   actions: {},
   modules: {},
+  plugins: [VuexLocalStorage],
 })

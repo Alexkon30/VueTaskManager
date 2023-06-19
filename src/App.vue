@@ -2,13 +2,11 @@
 import { onMounted } from 'vue'
 import store from './store'
 import Sidebar from './components/SideBar.vue'
-import { SET_TASKS } from './store/mutation-types'
 
 onMounted(() => {
-  let tasks = localStorage.getItem('tasks')
+  let tasks = localStorage.getItem('data')
   if (tasks !== null) {
-    tasks = JSON.parse(tasks)
-    store.commit(SET_TASKS, tasks)
+    store.replaceState(JSON.parse(tasks))
   }
 })
 </script>

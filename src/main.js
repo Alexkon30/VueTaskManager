@@ -12,6 +12,7 @@ import BootstrapVue, {
   FormGroupPlugin,
   FormInputPlugin,
   FormTextareaPlugin,
+  CardPlugin,
 } from 'bootstrap-vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -30,6 +31,7 @@ Vue.use(FormPlugin)
 Vue.use(FormGroupPlugin)
 Vue.use(FormInputPlugin)
 Vue.use(FormTextareaPlugin)
+Vue.use(CardPlugin)
 
 new Vue({
   router,

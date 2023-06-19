@@ -10,7 +10,7 @@ const localStorageAvailable = () => {
 }
 
 const setupLocalStorage = (store) => {
-  let previous = localStorage.getItem('tasks')
+  let previous = localStorage.getItem('data')
   if (previous) {
     store.replaceState(JSON.parse(previous))
   }
@@ -22,6 +22,6 @@ export const VuexLocalStorage = (store) => {
   }
   setupLocalStorage(store)
   store.subscribe((mutation, state) => {
-    localStorage.setItem('tasks', JSON.stringify(state))
+    localStorage.setItem('data', JSON.stringify(state))
   })
 }

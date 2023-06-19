@@ -1,5 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
+import store from '@/store'
+import { ADD_TASK } from '@/store/mutation-types'
 
 const form = ref({
   title: '',
@@ -14,7 +16,11 @@ const onReset = (event) => {
 
 const onSubmit = (event) => {
   event.preventDefault()
-  //create new task
+  store.commit(ADD_TASK, {
+    title: form.value.title,
+    description: form.value.description,
+    id: store.getters.getMaxId + 1,
+  })
 }
 
 const invalidTitle = computed(() => {

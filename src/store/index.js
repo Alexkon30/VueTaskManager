@@ -6,6 +6,8 @@ import {
   UPDATE_TASK,
   UPDATE_TASK_STATUS,
   SET_TASKS,
+  ACTIVE,
+  COMPLETED,
 } from './mutation-types'
 import { VuexLocalStorage } from './plugins'
 
@@ -18,19 +20,19 @@ export default new Vuex.Store({
         id: 1,
         title: 'title 1',
         description: 'descr 1',
-        status: 'draft',
+        status: ACTIVE,
       },
       {
         id: 2,
         title: 'title 2',
         description: 'descr 2',
-        status: 'active',
+        status: COMPLETED,
       },
     ],
   },
   getters: {
-    getTasks: (state) => {
-      return state.tasks
+    getTasks: (state) => (status) => {
+      return state.tasks.filter((task) => task.status === status)
     },
     getMaxId: (state) => {
       let maxId = 0
@@ -47,10 +49,10 @@ export default new Vuex.Store({
   },
   mutations: {
     [ADD_TASK]: (state, { title, description, id }) => {
-      state.tasks.push({ title, description, id, status: 'draft' })
+      state.tasks.push({ title, description, id, status: ACTIVE })
     },
     [DELETE_TASK]: (state, id) => {
-      state.tasks.filter((task) => task.id != id)
+      state.tasks = state.tasks.filter((task) => task.id != id)
     },
     [UPDATE_TASK]: (state, { title, description, id }) => {
       const task = state.tasks.find((task) => task.id === id)

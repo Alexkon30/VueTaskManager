@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from 'vue'
-import store from './store'
-import Sidebar from './components/SideBar.vue'
+import store from '@/store'
+import Navigation from '@/components/Navigation.vue'
 
 onMounted(() => {
   let tasks = localStorage.getItem('data')
@@ -13,7 +13,7 @@ onMounted(() => {
 
 <template>
   <b-container>
-    <Sidebar />
+    <Navigation />
     <router-view />
   </b-container>
 </template>

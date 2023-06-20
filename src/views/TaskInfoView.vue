@@ -1,5 +1,7 @@
-<script setup></script>
+<script setup>
+import UpdateForm from '@/components/UpdateForm.vue'
+</script>
 
 <template>
-  <div>{{ this.$route.params.id }}</div>
+  <UpdateForm />
 </template>

@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import store from '@/store'
 import { ADD_TASK } from '@/store/mutation-types'
+import router from '@/router'
 
 const form = ref({
   title: '',
@@ -21,6 +22,9 @@ const onSubmit = (event) => {
     description: form.value.description,
     id: store.getters.getMaxId + 1,
   })
+  form.value.title = ''
+  form.value.description = ''
+  router.push('/')
 }
 
 const invalidTitle = computed(() => {
